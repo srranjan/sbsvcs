@@ -1,0 +1,3 @@
+The files mysql-pvc-az.yaml mysql-pvc-gce.yaml and mysql-pvc-mini.yaml are without use of pv and that derived from one azure sample. The other pv and pvc combo are my original one. we shall try to use the one derived from azure sample as the deployment files are based on that.
+
+

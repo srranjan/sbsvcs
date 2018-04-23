@@ -1,0 +1,29 @@
+version: "2"
+services:
+  mysqldb:
+    image: srranjan/mysqlnew:V1
+    container_name: mysqldb
+    environment:
+      - MYSQL_ROOT_PASSWORD=my-secret-pw
+      - MYSQL_DATABASE=db_example
+      - MYSQL_USER=rranjan
+      - MYSQL_PASSWORD=rranjan01
+    ports: 
+      - "3306:3306"
+    networks:
+      - mydockernet
+
+  core:
+    image: srranjan/minisvcnew:latest
+    container_name: core
+    depends_on:
+      - mysqldb
+    environment:
+      - MYSQL_ROOT_PASSWORD=my-secret-pw
+      - REDIS_URIb=redisuri
+    ports:
+      - "9091:9091"
+    networks:
+      - mydockernet
+networks:
+   mydockernet:
